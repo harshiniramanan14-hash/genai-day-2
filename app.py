@@ -1,15 +1,22 @@
+import streamlit as st
+import requests
 
-prompt = "A home in peaceful place with garden in the front "
+st.set_page_config(page_title="Image Generator", layout="wide")
+st.title("bikes Image Generator")
 
-# Generate the image
-# You can adjust `num_inference_steps` for quality vs. speed
-# You can also add `guidance_scale` to control how much the image adheres to the prompt
-image = pipeline(prompt, num_inference_steps=25).images[0]
+prompt = st.text_input("Enter your prompt", "")
 
-# Display the generated image
-plt.imshow(image)
-plt.axis('off') # Hide axes ticks and labels
-plt.title(f"Generated Image for: '{prompt[:50]}...'\n")
-plt.show()
+if st.button("Generate Image"):
+    if prompt.strip() == "":
+        st.error("Please enter a prompt")
+    else:
+        # Pollinations API URL
+        url = "https://image.pollinations.ai/prompt/" + prompt
 
-print("Image generation complete!")
+        # Request the image
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            st.image(response.content, use_column_width=True)
+        else:
+            st.error("Error generating image. Try again!")
