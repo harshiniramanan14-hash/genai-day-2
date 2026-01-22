@@ -34,7 +34,7 @@ with st.sidebar:
     enhance_prompt = st.checkbox("Enhance Prompt (adds 'cinematic, 4k')", value=True)
 
 # --- Main UI ---
-st.title("🏍️ MotoGen: AI Bike Generator")
+st.title(" HarshGen: AI Bike Generator")
 st.write("Transform your imagination into high-speed reality.")
 
 prompt = st.text_input("Describe the bike you want to see:", placeholder="e.g. A futuristic neon Ducati in a cyberpunk city")
