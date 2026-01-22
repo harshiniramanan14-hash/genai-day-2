@@ -5,8 +5,8 @@ from PIL import Image
 
 # --- Page Configuration ---
 st.set_page_config(
-    page_title="MotoGen | AI Bike Creator",
-    page_icon="🏍️",
+    page_title="HarshGen | AI imagination Creator",
+    page_icon="⋇⋆✦⋆⋇",
     layout="centered"
 )
 
